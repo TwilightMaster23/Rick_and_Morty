@@ -8,10 +8,15 @@ const [id,setId] = useState("");
 const handleChange = (event) => {
    setId(event.target.value); 
 }
+
+function search () {
+   onSearch(id)
+   setId('')
+}
    return (
       <div className={style.container}>
-         <input type='search' onChange={handleChange} />
-         <button onClick={() => onSearch(id)}>Agregar</button>
+         <input type='search' onChange={handleChange} value={id} />
+         <button onClick={() => search()}>Agregar</button>
       </div>
    );
 }
