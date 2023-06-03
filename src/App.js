@@ -16,7 +16,7 @@ function App() {
    const {pathname} = useLocation()
    const navigate = useNavigate()
    const [characters, setCharacters] = useState([]);
-   const [access, setAccess] = useState(false)
+   const [access, setAccess] = useState(false);
 
    const EMAIL = "brian@henry.com"
    const PASSWORD = "asd123"
@@ -53,7 +53,7 @@ function App() {
       }).catch(() => window.alert('¡No hay personajes con este ID!'))
    }
 
-   const onCLose = (id) => {
+   const onClose = (id) => {
       setCharacters(characters.filter(char => char.id !== Number(id)))
    }
       
@@ -63,10 +63,10 @@ function App() {
          { pathname !== '/' && <Nav onSearch={onSearch} logout={logout} /> }
          <Routes>
             <Route path='/' element={<Form login={login}/>} />
-            <Route path='/home' element={<Cards characters={characters} onClose={onCLose}/>}/>
+            <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
             <Route path='/about' element={<About/>} />
             <Route path='/detail/:id' element={<Detail/>} />
-            <Route path='/favorites' element={<Favorites/>} />
+            <Route path='/favorites' element={<Favorites isFavoriteView={true}/>}/>
             <Route path='*' element={<Error404/>} />
          </Routes>
       </div>

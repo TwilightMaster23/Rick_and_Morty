@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 
 
-function Card({name, status, species, gender, origin, image, onClose, id, addFav, removeFav, myFavorites}) {
+function Card({name, status, species, gender, origin, image, onClose, id, addFav, removeFav, myFavorites, isFavoriteView}) {
 
    const [isFav, setIsFav] = useState(false)
 
@@ -31,7 +31,9 @@ function Card({name, status, species, gender, origin, image, onClose, id, addFav
    return (
       <div className={style.container}>
          <img className={style.marco} src={image} alt="" />
-         <button className={style.close} onClick={() => {onClose(id)}}>X</button>
+         {!isFavoriteView && (
+            <button className={style.close} onClick={() => {onClose(id)}}>X</button>
+         )}
          {
    isFav ? (
       <button className={style.fav} onClick={handleFavorite}>❤️</button>

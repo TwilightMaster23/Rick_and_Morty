@@ -35,6 +35,7 @@ function Favorites({ myFavorites }) {
          gender={gender}
          origin={origin.name}
          image={image}
+         isFavoriteView={true}
          />
     ))}</div>
     </div>)
