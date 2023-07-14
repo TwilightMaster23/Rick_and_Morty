@@ -15,7 +15,7 @@ function search () {
 }
    return (
       <div className={style.container}>
-         <input type='search' onChange={handleChange} value={id} />
+         <input type='search' onChange={handleChange} value={id} placeholder='Id del personaje' />
          <button onClick={() => search()}>Agregar</button>
       </div>
    );
