@@ -1,6 +1,7 @@
 import { connect, useDispatch } from "react-redux";
 import Card from "../Card/Card";
 import { filterCards, orderCards } from "../../redux/actions/actions";
+import style from "./favorites.module.css"
 
 function Favorites({ myFavorites }) {
     const dispatch = useDispatch();
@@ -10,22 +11,27 @@ function Favorites({ myFavorites }) {
     }
     
     const handleFilter = (evento) => {
-        dispatch(filterCards(evento.target.value))
+        const selectedValue = evento.target.value;
+        const filterValue = selectedValue === "All" ? null : selectedValue;
+        dispatch(filterCards(filterValue))
     }
     return (<div>
-        <div>
+        <div className={style.filtrados}>
             <select name="order" onChange={handleOrder}>
-                <option value="A">A</option>
-                <option value="D">D</option>
+                <option value='text'>Ordenar por ID</option>
+                <option value="A">Ascendente</option>
+                <option value="D">Descendente</option>
             </select>
             <select name="filter" onChange={handleFilter}>
+                <option value='text'>Filtrar</option>
+                <option value="All">All</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Genderless">Genderless</option>
                 <option value="unknown">unknown</option>
             </select>
         </div>
-        <div>{myFavorites.map(({name, status, species, gender, origin, image,id}) => (
+        <div className={style.container}>{myFavorites.map(({name, status, species, gender, origin, image,id}) => (
         <Card
         key={id}
          id={id}

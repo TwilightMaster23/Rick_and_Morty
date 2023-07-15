@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.8em;
+    padding-left: 0.5em;
+    padding-right: 0.8em;
+ }
+
+ .filtrados{
+    display: flex, center;
+    padding-top: 4em;
+ }
